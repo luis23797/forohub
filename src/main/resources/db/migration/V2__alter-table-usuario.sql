@@ -1,0 +1,1 @@
+ALTER TABLE usuario CHANGE email correo_electronico varchar(100);
