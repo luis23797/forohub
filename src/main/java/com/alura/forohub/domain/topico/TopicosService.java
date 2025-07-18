@@ -53,12 +53,12 @@ public class TopicosService {
         return new DatosDetalleTopico(topico);
     }
 
-    public DatosDetalleTopico editarTopico(DatosEditarTopico datos) {
-        if(!topicoRepository.existsById(datos.id())) throw new ValidacionException("No existe un topico con el id proveido");
+    public DatosDetalleTopico editarTopico(Long id,DatosEditarTopico datos) {
+        if(!topicoRepository.existsById(id)) throw new ValidacionException("No existe un topico con el id proveido");
 
         validadorDeEdicionTopico.forEach(validador->validador.validar(datos));
 
-        var topico = topicoRepository.getReferenceById(datos.id());
+        var topico = topicoRepository.getReferenceById(id);
         topico.actualizarInformacion(datos);
         return new DatosDetalleTopico(topico);
     }

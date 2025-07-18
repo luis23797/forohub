@@ -36,9 +36,9 @@ public class TopicoController {
         return ResponseEntity.ok(topico);
     }
     @Transactional
-    @PutMapping()
-    public ResponseEntity<DatosDetalleTopico> editarTopico(@RequestBody DatosEditarTopico datos){
-        var topico = service.editarTopico(datos);
+    @PutMapping("/{id}")
+    public ResponseEntity<DatosDetalleTopico> editarTopico(@PathVariable Long id, @RequestBody DatosEditarTopico datos){
+        var topico = service.editarTopico(id,datos);
         return ResponseEntity.ok(topico);
     }
     @Transactional
