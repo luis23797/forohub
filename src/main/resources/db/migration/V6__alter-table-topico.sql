@@ -1,0 +1,1 @@
+ALTER TABLE topico CHANGE fecha fecha_creacion datetime not null DEFAULT CURRENT_TIMESTAMP

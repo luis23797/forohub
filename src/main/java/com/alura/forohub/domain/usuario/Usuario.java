@@ -1,5 +1,6 @@
 package com.alura.forohub.domain.usuario;
 
+import com.alura.forohub.domain.topico.Topico;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -25,7 +26,8 @@ public class Usuario implements UserDetails {
     private String nombre;
     private String correoElectronico;
     private String contrasena;
-
+    @OneToMany(mappedBy = "autor")
+    private List<Topico> topicos;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
